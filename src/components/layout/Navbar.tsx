@@ -82,8 +82,7 @@ export default function Navbar({ user }: NavbarProps) {
             <Bell size={18} />
           </button>
           <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <button className="outline-none">
+            <DropdownMenuTrigger className="outline-none">
                 <Avatar className="w-8 h-8 cursor-pointer">
                   <AvatarFallback className="bg-[#00a8c8] text-white text-xs font-medium">
                     {user.name
@@ -94,7 +93,6 @@ export default function Navbar({ user }: NavbarProps) {
                       .slice(0, 2)}
                   </AvatarFallback>
                 </Avatar>
-              </button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-48">
               <div className="px-3 py-2">
@@ -102,11 +100,12 @@ export default function Navbar({ user }: NavbarProps) {
                 <p className="text-xs text-gray-500 truncate">{user.email}</p>
               </div>
               <DropdownMenuSeparator />
-              <DropdownMenuItem asChild>
-                <Link href="/profile" className="flex items-center gap-2 cursor-pointer">
-                  <User size={14} />
-                  My Profile
-                </Link>
+              <DropdownMenuItem
+                onClick={() => window.location.href = '/profile'}
+                className="flex items-center gap-2 cursor-pointer"
+              >
+                <User size={14} />
+                My Profile
               </DropdownMenuItem>
               <DropdownMenuSeparator />
               <DropdownMenuItem

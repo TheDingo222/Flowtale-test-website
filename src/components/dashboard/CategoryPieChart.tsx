@@ -37,7 +37,7 @@ export default function CategoryPieChart({ data }: { data: DataPoint[] }) {
             <Cell key={i} fill={COLORS[i % COLORS.length]} />
           ))}
         </Pie>
-        <Tooltip formatter={(v: number) => v.toFixed(2)} contentStyle={{ fontSize: 11 }} />
+        <Tooltip formatter={(value) => [(value as number).toFixed(2)]} contentStyle={{ fontSize: 11 }} />
         <Legend
           layout="vertical"
           align="right"

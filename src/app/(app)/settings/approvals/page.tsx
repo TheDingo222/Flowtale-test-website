@@ -57,7 +57,7 @@ export default function ApprovalSettingsPage() {
               <span className="text-xs text-gray-400">Approver:</span>
               <Select
                 value={getApprover(user.id)}
-                onValueChange={(v) => setApprover(user.id, v)}
+                onValueChange={(v) => setApprover(user.id, v ?? '')}
                 disabled={saving[user.id]}
               >
                 <SelectTrigger className="w-48 h-8 text-sm">

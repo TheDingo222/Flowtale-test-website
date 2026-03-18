@@ -25,7 +25,7 @@ export default function ExpenseLineChart({ data }: { data: DataPoint[] }) {
         <XAxis dataKey="date" tick={{ fontSize: 11, fill: '#9ca3af' }} />
         <YAxis tick={{ fontSize: 11, fill: '#9ca3af' }} />
         <Tooltip
-          formatter={(value: number) => [value.toFixed(2), 'Amount']}
+          formatter={(value) => [(value as number).toFixed(2), 'Amount']}
           contentStyle={{ fontSize: 12 }}
         />
         <Line

@@ -85,7 +85,7 @@ export default function ProfilePage() {
             </div>
             <div>
               <Label>Language</Label>
-              <Select value={form.language} onValueChange={v => setForm({ ...form, language: v })}>
+              <Select value={form.language} onValueChange={v => setForm({ ...form, language: v ?? '' })}>
                 <SelectTrigger className="mt-1"><SelectValue /></SelectTrigger>
                 <SelectContent>
                   <SelectItem value="en">English</SelectItem>

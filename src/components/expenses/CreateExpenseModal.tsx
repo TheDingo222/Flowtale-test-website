@@ -204,7 +204,7 @@ export default function CreateExpenseModal({ categories, paymentMethods, tags }:
                 <Label className="text-xs text-gray-600">{t('currency')}</Label>
                 <Select
                   value={form.currency}
-                  onValueChange={(v) => setForm({ ...form, currency: v })}
+                  onValueChange={(v) => setForm({ ...form, currency: v ?? '' })}
                 >
                   <SelectTrigger className="mt-1">
                     <SelectValue />
@@ -222,7 +222,7 @@ export default function CreateExpenseModal({ categories, paymentMethods, tags }:
               <Label className="text-xs text-gray-600">{t('paymentMethod')}</Label>
               <Select
                 value={form.paymentMethodId}
-                onValueChange={(v) => setForm({ ...form, paymentMethodId: v })}
+                onValueChange={(v) => setForm({ ...form, paymentMethodId: v ?? '' })}
               >
                 <SelectTrigger className="mt-1">
                   <SelectValue placeholder="Select..." />
@@ -249,7 +249,7 @@ export default function CreateExpenseModal({ categories, paymentMethods, tags }:
               <Label className="text-xs text-gray-600">{t('category')}</Label>
               <Select
                 value={form.categoryId}
-                onValueChange={(v) => setForm({ ...form, categoryId: v })}
+                onValueChange={(v) => setForm({ ...form, categoryId: v ?? '' })}
               >
                 <SelectTrigger className="mt-1">
                   <SelectValue placeholder="Select..." />
@@ -266,7 +266,7 @@ export default function CreateExpenseModal({ categories, paymentMethods, tags }:
               <Label className="text-xs text-gray-600">{t('tag')}</Label>
               <Select
                 value={form.tagId}
-                onValueChange={(v) => setForm({ ...form, tagId: v })}
+                onValueChange={(v) => setForm({ ...form, tagId: v ?? '' })}
               >
                 <SelectTrigger className="mt-1">
                   <SelectValue placeholder="Select tag..." />

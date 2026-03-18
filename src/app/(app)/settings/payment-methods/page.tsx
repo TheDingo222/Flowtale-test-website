@@ -53,7 +53,7 @@ export default function PaymentMethodsPage() {
           </div>
           <div>
             <Label className="text-xs">Type</Label>
-            <Select value={form.type} onValueChange={v => setForm({ ...form, type: v })}>
+            <Select value={form.type} onValueChange={v => setForm({ ...form, type: v ?? '' })}>
               <SelectTrigger className="mt-1 h-8 w-36"><SelectValue /></SelectTrigger>
               <SelectContent>
                 <SelectItem value="STANDARD">Standard</SelectItem>

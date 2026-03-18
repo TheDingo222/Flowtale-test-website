@@ -25,7 +25,7 @@ export default function UserBarChart({ data }: { data: DataPoint[] }) {
         <XAxis dataKey="name" tick={{ fontSize: 10, fill: '#9ca3af' }} />
         <YAxis tick={{ fontSize: 10, fill: '#9ca3af' }} />
         <Tooltip
-          formatter={(value: number) => [value.toFixed(2), 'Total']}
+          formatter={(value) => [(value as number).toFixed(2), 'Total']}
           contentStyle={{ fontSize: 11 }}
         />
         <Bar dataKey="total" fill="#00a8c8" radius={[3, 3, 0, 0]} />
