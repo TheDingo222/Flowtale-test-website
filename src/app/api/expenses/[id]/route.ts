@@ -64,6 +64,12 @@ export async function PATCH(
   }
 
   const data = parsed.data
+
+  // Non-owners cannot set approved/rejected status
+  if (session.user.role !== 'OWNER' && data.status && ['APPROVED', 'REJECTED'].includes(data.status)) {
+    return NextResponse.json({ error: 'Only admins can approve or reject expenses' }, { status: 403 })
+  }
+
   const updated = await prisma.expense.update({
     where: { id },
     data: {

@@ -20,7 +20,7 @@ export async function uploadReceipt(
   const client = getBlobClient()
   const containerName = process.env.AZURE_BLOB_CONTAINER_NAME || 'receipts'
   const container = client.getContainerClient(containerName)
-  await container.createIfNotExists({ access: 'blob' })
+  await container.createIfNotExists()
 
   // Sanitize filename and add timestamp to avoid collisions
   const sanitized = filename.replace(/[^a-zA-Z0-9._-]/g, '_')

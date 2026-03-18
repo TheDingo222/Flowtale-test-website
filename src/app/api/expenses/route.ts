@@ -22,6 +22,11 @@ export async function GET(req: Request) {
   const { searchParams } = new URL(req.url)
   const statusFilter = searchParams.get('status')
 
+  const validStatuses = ['DRAFT', 'PENDING', 'APPROVED', 'REJECTED']
+  if (statusFilter && !validStatuses.includes(statusFilter)) {
+    return NextResponse.json({ error: 'Invalid status filter' }, { status: 400 })
+  }
+
   const where: Record<string, unknown> = {
     userId: session.user.id,
   }
