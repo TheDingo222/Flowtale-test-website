@@ -1,0 +1,120 @@
+{
+  "nav": {
+    "dashboard": "Oversigt",
+    "expenses": "Mine udgifter",
+    "approvals": "Godkendelser",
+    "reports": "Udgiftsrapporter",
+    "archive": "Arkiv",
+    "settings": "Indstillinger"
+  },
+  "auth": {
+    "signIn": "Log ind",
+    "signOut": "Log ud",
+    "email": "E-mail",
+    "password": "Adgangskode",
+    "invalidCredentials": "Ugyldig e-mail eller adgangskode"
+  },
+  "expenses": {
+    "title": "Mine udgifter",
+    "create": "Opret ny udgift",
+    "noExpenses": "Der er ingen udgifter på nuværende tidspunkt.",
+    "amount": "Beløb",
+    "currency": "Valuta",
+    "paymentMethod": "Betalingsmetode",
+    "category": "Kategori",
+    "tag": "Tag",
+    "receiptDate": "Kvitteringsdato",
+    "description": "Beskrivelse",
+    "saveDraft": "Gem kladde",
+    "submit": "Send til bogholder",
+    "cancel": "Annullér",
+    "filter": "Filtrer",
+    "status": {
+      "DRAFT": "Kladde",
+      "PENDING": "Afventer",
+      "APPROVED": "Godkendt",
+      "REJECTED": "Afvist"
+    }
+  },
+  "approvals": {
+    "title": "Godkendelser",
+    "myApprovals": "Egne godkendelser",
+    "approve": "Godkend",
+    "reject": "Afvis",
+    "comment": "Kommentar (valgfri)",
+    "noExpenses": "Der er ingen udgifter på nuværende tidspunkt."
+  },
+  "reports": {
+    "title": "Udgiftsrapporter",
+    "active": "Aktive rapporter",
+    "archived": "Arkiverede rapporter",
+    "export": "Eksportér",
+    "noReports": "Ingen rapporter endnu."
+  },
+  "archive": {
+    "title": "Arkiv",
+    "date": "Dato",
+    "id": "ID",
+    "user": "Bruger",
+    "description": "Beskrivelse",
+    "category": "Kategori/Projekt",
+    "tags": "Tags",
+    "paymentMethod": "Betalingsmetode",
+    "status": "Status",
+    "amount": "Beløb",
+    "search": "Søg efter kvitteringsnummer, person eller note",
+    "refundable": "Refunderbar",
+    "total": "Total",
+    "clickToView": "Klik på en udgift for at se detaljer",
+    "viewReceipt": "Se kvittering"
+  },
+  "settings": {
+    "users": "Brugere",
+    "categories": "Kategorier",
+    "tags": "Tags",
+    "paymentMethods": "Betalingsmetoder",
+    "approvalSettings": "Godkendelsesindstillinger",
+    "accountingPeriod": "Grænse for regnskabsperiode",
+    "integrations": "Integrationer",
+    "inviteUser": "Invitér bruger",
+    "addUser": "Tilføj bruger",
+    "addCategory": "Tilføj kategori",
+    "addTag": "Tilføj tag",
+    "addPaymentMethod": "Tilføj betalingsmetode"
+  },
+  "profile": {
+    "title": "Min profil",
+    "save": "Gem ændringer",
+    "firstName": "Fornavn",
+    "lastName": "Efternavn",
+    "initials": "Initialer",
+    "language": "Sprog",
+    "changePassword": "Skift adgangskode",
+    "currentPassword": "Nuværende adgangskode",
+    "newPassword": "Ny adgangskode",
+    "confirmPassword": "Bekræft adgangskode",
+    "notifications": "Notifikationer",
+    "defaults": "Standarder",
+    "defaultPaymentMethod": "Standard betalingsmetode",
+    "defaultCategory": "Standard kategori"
+  },
+  "common": {
+    "save": "Gem",
+    "cancel": "Annullér",
+    "delete": "Slet",
+    "edit": "Rediger",
+    "filter": "Filtrer",
+    "search": "Søg",
+    "loading": "Indlæser...",
+    "active": "Aktiv",
+    "inactive": "Inaktiv",
+    "yes": "Ja",
+    "no": "Nej",
+    "name": "Navn",
+    "email": "E-mail",
+    "role": "Rolle",
+    "status": "Status",
+    "createdAt": "Oprettet",
+    "actions": "Handlinger"
+  }
+}

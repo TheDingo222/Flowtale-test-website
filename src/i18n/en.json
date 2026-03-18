@@ -1,0 +1,120 @@
+{
+  "nav": {
+    "dashboard": "Dashboard",
+    "expenses": "My Expenses",
+    "approvals": "Approvals",
+    "reports": "Expense Reports",
+    "archive": "Archive",
+    "settings": "Settings"
+  },
+  "auth": {
+    "signIn": "Sign in",
+    "signOut": "Sign out",
+    "email": "Email",
+    "password": "Password",
+    "invalidCredentials": "Invalid email or password"
+  },
+  "expenses": {
+    "title": "My Expenses",
+    "create": "Create Expense",
+    "noExpenses": "No expenses at this time.",
+    "amount": "Amount",
+    "currency": "Currency",
+    "paymentMethod": "Payment Method",
+    "category": "Category",
+    "tag": "Tag",
+    "receiptDate": "Receipt Date",
+    "description": "Description",
+    "saveDraft": "Save Draft",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "filter": "Filter",
+    "status": {
+      "DRAFT": "Draft",
+      "PENDING": "Pending",
+      "APPROVED": "Approved",
+      "REJECTED": "Rejected"
+    }
+  },
+  "approvals": {
+    "title": "Approvals",
+    "myApprovals": "My Approvals",
+    "approve": "Approve",
+    "reject": "Reject",
+    "comment": "Comment (optional)",
+    "noExpenses": "No expenses require approval at this time."
+  },
+  "reports": {
+    "title": "Expense Reports",
+    "active": "Active reports",
+    "archived": "Archived reports",
+    "export": "Export",
+    "noReports": "No reports yet."
+  },
+  "archive": {
+    "title": "Archive",
+    "date": "Date",
+    "id": "ID",
+    "user": "User",
+    "description": "Description",
+    "category": "Category",
+    "tags": "Tags",
+    "paymentMethod": "Payment Method",
+    "status": "Status",
+    "amount": "Amount",
+    "search": "Search receipts...",
+    "refundable": "Refundable",
+    "total": "Total",
+    "clickToView": "Click an expense to see details",
+    "viewReceipt": "View receipt"
+  },
+  "settings": {
+    "users": "Users",
+    "categories": "Categories",
+    "tags": "Tags",
+    "paymentMethods": "Payment Methods",
+    "approvalSettings": "Approval Settings",
+    "accountingPeriod": "Accounting Period",
+    "integrations": "Integrations",
+    "inviteUser": "Invite User",
+    "addUser": "Add User",
+    "addCategory": "Add Category",
+    "addTag": "Add Tag",
+    "addPaymentMethod": "Add Payment Method"
+  },
+  "profile": {
+    "title": "My Profile",
+    "save": "Save Changes",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "initials": "Initials",
+    "language": "Language",
+    "changePassword": "Change Password",
+    "currentPassword": "Current Password",
+    "newPassword": "New Password",
+    "confirmPassword": "Confirm Password",
+    "notifications": "Notifications",
+    "defaults": "Defaults",
+    "defaultPaymentMethod": "Default Payment Method",
+    "defaultCategory": "Default Category"
+  },
+  "common": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "filter": "Filter",
+    "search": "Search",
+    "loading": "Loading...",
+    "active": "Active",
+    "inactive": "Inactive",
+    "yes": "Yes",
+    "no": "No",
+    "name": "Name",
+    "email": "Email",
+    "role": "Role",
+    "status": "Status",
+    "createdAt": "Created",
+    "actions": "Actions"
+  }
+}
