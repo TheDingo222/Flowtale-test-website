@@ -46,6 +46,15 @@ async function main() {
     skipDuplicates: true,
   })
 
+  // Default tags
+  await prisma.tag.createMany({
+    data: [
+      { name: 'Clients', period: 'Clients' },
+      { name: 'IT', period: 'IT' },
+    ],
+    skipDuplicates: true,
+  })
+
   console.log('Seed complete. Login: admin@company.com / admin123')
 }
 
