@@ -41,20 +41,20 @@ export default function ApprovalSettingsPage() {
 
   return (
     <div>
-      <h1 className="text-2xl font-semibold text-gray-900 mb-2">Approval Settings</h1>
-      <p className="text-sm text-gray-500 mb-6">Assign an approver for each user. When a user submits an expense, it will be sent to their assigned approver.</p>
+      <h1 className="text-2xl font-semibold text-navy mb-2">Approval Settings</h1>
+      <p className="text-sm text-muted-foreground mb-6">Assign an approver for each user. When a user submits an expense, it will be sent to their assigned approver.</p>
 
-      <div className="bg-white rounded-lg border divide-y">
+      <div className="bg-card rounded-lg border border-border divide-y">
         {users.map(user => (
           <div key={user.id} className="flex items-center justify-between px-4 py-3">
             <div className="flex items-center gap-3">
-              <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#00a8c8] text-white text-xs font-semibold">
+              <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-coral text-white text-xs font-semibold">
                 {user.initials || user.name.slice(0, 2).toUpperCase()}
               </span>
               <span className="font-medium text-sm">{user.name}</span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="text-xs text-gray-400">Approver:</span>
+              <span className="text-xs text-light-grey">Approver:</span>
               <Select
                 value={getApprover(user.id)}
                 onValueChange={(v) => setApprover(user.id, v ?? '')}

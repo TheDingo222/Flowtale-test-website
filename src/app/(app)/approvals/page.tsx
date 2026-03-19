@@ -65,41 +65,41 @@ export default function ApprovalsPage() {
     <div>
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="text-2xl font-semibold text-gray-900">Approvals</h1>
-          <p className="text-sm text-gray-500 mt-1">
+          <h1 className="text-2xl font-semibold text-navy">Approvals</h1>
+          <p className="text-sm text-muted-foreground mt-1">
             Review each expense and approve or reject it.
           </p>
         </div>
       </div>
 
       {fetching ? (
-        <div className="bg-white rounded-lg border p-8 text-center text-gray-400">Loading...</div>
+        <div className="bg-card rounded-lg border border-border p-8 text-center text-light-grey">Loading...</div>
       ) : expenses.length === 0 ? (
-        <div className="bg-white rounded-lg border p-12 text-center">
+        <div className="bg-card rounded-lg border border-border p-12 text-center">
           <div className="text-4xl mb-3">🎉</div>
-          <p className="text-gray-500">No expenses require approval at this time.</p>
+          <p className="text-muted-foreground">No expenses require approval at this time.</p>
         </div>
       ) : (
         <div className="space-y-3">
           {expenses.map((expense) => (
-            <div key={expense.id} className="bg-white rounded-lg border shadow-sm">
+            <div key={expense.id} className="bg-card rounded-lg border border-border shadow-sm">
               <div className="p-4">
                 <div className="flex items-start justify-between">
                   <div className="flex items-start gap-3">
                     {/* User avatar */}
-                    <div className="w-9 h-9 rounded-full bg-[#00a8c8] flex items-center justify-center text-white text-xs font-semibold shrink-0">
+                    <div className="w-9 h-9 rounded-full bg-coral flex items-center justify-center text-white text-xs font-semibold shrink-0">
                       {expense.user.initials || expense.user.name.slice(0, 2).toUpperCase()}
                     </div>
                     <div>
                       <div className="flex items-center gap-2 mb-0.5">
-                        <span className="font-medium text-sm text-gray-900">{expense.user.name}</span>
-                        <span className="text-xs text-gray-400">#{expense.sequentialId}</span>
+                        <span className="font-medium text-sm text-navy">{expense.user.name}</span>
+                        <span className="text-xs text-light-grey">#{expense.sequentialId}</span>
                         <ExpenseStatusBadge status={expense.status} />
                       </div>
-                      <p className="text-gray-700 text-sm">{expense.description ?? '—'}</p>
-                      <div className="flex items-center gap-4 mt-1 text-xs text-gray-500">
+                      <p className="text-dark-slate text-sm">{expense.description ?? '—'}</p>
+                      <div className="flex items-center gap-4 mt-1 text-xs text-muted-foreground">
                         {expense.category && <span>{expense.category.name}</span>}
-                        {expense.tag && <span className="bg-gray-100 px-1.5 py-0.5 rounded">{expense.tag.name}</span>}
+                        {expense.tag && <span className="bg-secondary px-1.5 py-0.5 rounded">{expense.tag.name}</span>}
                         {expense.receiptDate && (
                           <span>{format(new Date(expense.receiptDate), 'dd.MM.yyyy')}</span>
                         )}
@@ -108,7 +108,7 @@ export default function ApprovalsPage() {
                             href={expense.receiptUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-[#00a8c8] hover:underline"
+                            className="text-cyan hover:underline"
                           >
                             View receipt
                           </a>
@@ -118,11 +118,11 @@ export default function ApprovalsPage() {
                   </div>
 
                   <div className="text-right shrink-0 ml-4">
-                    <p className="text-lg font-bold text-gray-900">
+                    <p className="text-lg font-bold text-navy">
                       {expense.amount.toFixed(2)} {expense.currency}
                     </p>
                     {expense.paymentMethod && (
-                      <p className="text-xs text-gray-500">{expense.paymentMethod.name}</p>
+                      <p className="text-xs text-muted-foreground">{expense.paymentMethod.name}</p>
                     )}
                   </div>
                 </div>

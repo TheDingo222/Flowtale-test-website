@@ -70,44 +70,44 @@ export default async function DashboardPage() {
   return (
     <div className="space-y-4">
       <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-semibold text-gray-900">{t('dashboard')}</h1>
+        <h1 className="text-2xl font-semibold text-navy">{t('dashboard')}</h1>
       </div>
 
       {/* Summary cards */}
       <div className="grid grid-cols-3 gap-4">
-        <div className="bg-white rounded-lg border p-4">
-          <p className="text-xs text-gray-500 uppercase tracking-wide">Total Expenses</p>
-          <p className="text-2xl font-bold text-gray-900 mt-1">
+        <div className="bg-card rounded-lg border p-4">
+          <p className="text-xs text-muted-foreground uppercase tracking-wide">Total Expenses</p>
+          <p className="text-2xl font-bold text-navy mt-1">
             {totalAmount.toFixed(2)} {currency}
           </p>
-          <p className="text-xs text-gray-400 mt-1">{expenses.length} expense{expenses.length !== 1 ? 's' : ''}</p>
+          <p className="text-xs text-light-grey mt-1">{expenses.length} expense{expenses.length !== 1 ? 's' : ''}</p>
         </div>
-        <div className="bg-white rounded-lg border p-4">
-          <p className="text-xs text-gray-500 uppercase tracking-wide">Pending Approval</p>
-          <p className="text-2xl font-bold text-[#00a8c8] mt-1">{pendingCount}</p>
-          <p className="text-xs text-gray-400 mt-1">awaiting review</p>
+        <div className="bg-card rounded-lg border p-4">
+          <p className="text-xs text-muted-foreground uppercase tracking-wide">Pending Approval</p>
+          <p className="text-2xl font-bold text-cyan mt-1">{pendingCount}</p>
+          <p className="text-xs text-light-grey mt-1">awaiting review</p>
         </div>
-        <div className="bg-white rounded-lg border p-4">
-          <p className="text-xs text-gray-500 uppercase tracking-wide">Recent Approvals</p>
+        <div className="bg-card rounded-lg border p-4">
+          <p className="text-xs text-muted-foreground uppercase tracking-wide">Recent Approvals</p>
           <p className="text-2xl font-bold text-green-600 mt-1">{recentApprovals.filter(a => a.status === 'APPROVED').length}</p>
-          <p className="text-xs text-gray-400 mt-1">of last {recentApprovals.length} actions</p>
+          <p className="text-xs text-light-grey mt-1">of last {recentApprovals.length} actions</p>
         </div>
       </div>
 
       <div className="grid grid-cols-3 gap-4">
         {/* Charts column */}
         <div className="col-span-2 space-y-4">
-          <div className="bg-white rounded-lg border p-4">
-            <h2 className="text-sm font-semibold text-gray-700 mb-3">Expenses over time</h2>
+          <div className="bg-card rounded-lg border p-4">
+            <h2 className="text-sm font-semibold text-dark-slate mb-3">Expenses over time</h2>
             <ExpenseLineChart data={lineData} />
           </div>
           <div className="grid grid-cols-2 gap-4">
-            <div className="bg-white rounded-lg border p-4">
-              <h2 className="text-sm font-semibold text-gray-700 mb-3">By category</h2>
+            <div className="bg-card rounded-lg border p-4">
+              <h2 className="text-sm font-semibold text-dark-slate mb-3">By category</h2>
               <CategoryPieChart data={pieData} />
             </div>
-            <div className="bg-white rounded-lg border p-4">
-              <h2 className="text-sm font-semibold text-gray-700 mb-3">By employee</h2>
+            <div className="bg-card rounded-lg border p-4">
+              <h2 className="text-sm font-semibold text-dark-slate mb-3">By employee</h2>
               <UserBarChart data={barData} />
             </div>
           </div>
@@ -115,10 +115,10 @@ export default async function DashboardPage() {
 
         {/* Right panel */}
         <div className="space-y-4">
-          <div className="bg-white rounded-lg border p-4">
-            <h2 className="text-sm font-semibold text-gray-700 mb-3">Recent activity</h2>
+          <div className="bg-card rounded-lg border p-4">
+            <h2 className="text-sm font-semibold text-dark-slate mb-3">Recent activity</h2>
             {recentApprovals.length === 0 ? (
-              <p className="text-xs text-gray-400">No recent activity</p>
+              <p className="text-xs text-light-grey">No recent activity</p>
             ) : (
               <div className="space-y-2">
                 {recentApprovals.map((a) => (
@@ -126,14 +126,14 @@ export default async function DashboardPage() {
                     <div className="flex items-center gap-2">
                       <span
                         className={`w-4 h-4 rounded-full flex items-center justify-center text-white text-[10px] ${
-                          a.status === 'APPROVED' ? 'bg-green-500' : 'bg-red-400'
+                          a.status === 'APPROVED' ? 'bg-emerald-500' : 'bg-coral'
                         }`}
                       >
                         {a.status === 'APPROVED' ? '✓' : '✗'}
                       </span>
-                      <span className="text-gray-700">{a.expense.user?.name.split(' ')[0]}</span>
+                      <span className="text-dark-slate">{a.expense.user?.name.split(' ')[0]}</span>
                     </div>
-                    <span className="text-gray-400">#{a.expense.sequentialId}</span>
+                    <span className="text-light-grey">#{a.expense.sequentialId}</span>
                   </div>
                 ))}
               </div>

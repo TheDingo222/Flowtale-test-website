@@ -14,13 +14,13 @@ interface DataPoint {
 }
 
 const COLORS = [
-  '#00a8c8', '#1a3a4a', '#4fc3f7', '#006064',
-  '#00838f', '#81d4fa', '#b3e5fc', '#e0f7fa',
+  '#4DD8E0', '#0E122C', '#EA6468', '#1E293B',
+  '#334155', '#FF6267', '#C6C6C6', '#4DD8E0',
 ]
 
 export default function CategoryPieChart({ data }: { data: DataPoint[] }) {
   if (data.length === 0) {
-    return <div className="h-48 flex items-center justify-center text-gray-400 text-sm">No data</div>
+    return <div className="h-48 flex items-center justify-center text-[#C6C6C6] text-sm">No data</div>
   }
   return (
     <ResponsiveContainer width="100%" height={240}>

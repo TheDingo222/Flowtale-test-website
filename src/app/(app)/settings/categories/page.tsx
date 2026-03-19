@@ -45,14 +45,14 @@ export default function CategoriesPage() {
   return (
     <div>
       <div className="flex items-center justify-between mb-6">
-        <h1 className="text-2xl font-semibold text-gray-900">Categories</h1>
-        <Button onClick={() => setAdding(true)} className="bg-[#00a8c8] hover:bg-[#0090aa] text-white">
+        <h1 className="text-2xl font-semibold text-navy">Categories</h1>
+        <Button onClick={() => setAdding(true)} className="bg-coral hover:bg-coral-hover text-white">
           Add Category
         </Button>
       </div>
 
       {adding && (
-        <form onSubmit={addCategory} className="bg-white border rounded-lg p-4 mb-4 flex gap-3 items-end flex-wrap">
+        <form onSubmit={addCategory} className="bg-card border border-border rounded-lg p-4 mb-4 flex gap-3 items-end flex-wrap">
           <div>
             <Label className="text-xs">Name *</Label>
             <Input required value={form.name} onChange={e => setForm({ ...form, name: e.target.value })} className="mt-1 h-8 w-48" />
@@ -65,7 +65,7 @@ export default function CategoriesPage() {
             <Label className="text-xs">VAT Code</Label>
             <Input value={form.vatCode} onChange={e => setForm({ ...form, vatCode: e.target.value })} className="mt-1 h-8 w-24" placeholder="e.g. 25%" />
           </div>
-          <Button type="submit" className="bg-[#00a8c8] hover:bg-[#0090aa] text-white h-8">Save</Button>
+          <Button type="submit" className="bg-coral hover:bg-coral-hover text-white h-8">Save</Button>
           <Button type="button" variant="outline" onClick={() => setAdding(false)} className="h-8">Cancel</Button>
         </form>
       )}
@@ -73,13 +73,13 @@ export default function CategoriesPage() {
       {[{ label: 'Active categories', items: active }, { label: 'Inactive categories', items: inactive }].map(({ label, items }) =>
         items.length > 0 ? (
           <div key={label} className="mb-6">
-            <h2 className="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-2">{label}</h2>
+            <h2 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground mb-2">{label}</h2>
             <div className="grid grid-cols-2 gap-3">
               {items.map(cat => (
-                <div key={cat.id} className="bg-white border rounded-lg p-3 flex justify-between items-start">
+                <div key={cat.id} className="bg-card border border-border rounded-lg p-3 flex justify-between items-start">
                   <div>
-                    <p className="font-medium text-sm text-gray-900">{cat.name}</p>
-                    <div className="text-xs text-gray-400 mt-0.5 space-x-3">
+                    <p className="font-medium text-sm text-navy">{cat.name}</p>
+                    <div className="text-xs text-light-grey mt-0.5 space-x-3">
                       {cat.financeAccount && <span>Account: {cat.financeAccount}</span>}
                       {cat.vatCode && <span>VAT: {cat.vatCode}</span>}
                     </div>
@@ -87,7 +87,7 @@ export default function CategoriesPage() {
                   <button
                     onClick={() => toggleActive(cat.id, cat.active)}
                     className={`w-4 h-4 rounded-full border-2 mt-0.5 shrink-0 transition-colors ${
-                      cat.active ? 'bg-green-400 border-green-400' : 'bg-gray-200 border-gray-300'
+                      cat.active ? 'bg-green-400 border-green-400' : 'bg-secondary border-border'
                     }`}
                     title={cat.active ? 'Deactivate' : 'Activate'}
                   />

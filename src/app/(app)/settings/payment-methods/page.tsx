@@ -35,14 +35,14 @@ export default function PaymentMethodsPage() {
   return (
     <div>
       <div className="flex items-center justify-between mb-6">
-        <h1 className="text-2xl font-semibold text-gray-900">Payment Methods</h1>
-        <Button onClick={() => setAdding(true)} className="bg-[#00a8c8] hover:bg-[#0090aa] text-white">
+        <h1 className="text-2xl font-semibold text-navy">Payment Methods</h1>
+        <Button onClick={() => setAdding(true)} className="bg-coral hover:bg-coral-hover text-white">
           Add Payment Method
         </Button>
       </div>
 
       {adding && (
-        <form onSubmit={addMethod} className="bg-white border rounded-lg p-4 mb-4 flex gap-3 items-end flex-wrap">
+        <form onSubmit={addMethod} className="bg-card border border-border rounded-lg p-4 mb-4 flex gap-3 items-end flex-wrap">
           <div>
             <Label className="text-xs">Name *</Label>
             <Input required value={form.name} onChange={e => setForm({ ...form, name: e.target.value })} className="mt-1 h-8 w-48" />
@@ -61,24 +61,24 @@ export default function PaymentMethodsPage() {
               </SelectContent>
             </Select>
           </div>
-          <Button type="submit" className="bg-[#00a8c8] hover:bg-[#0090aa] text-white h-8">Save</Button>
+          <Button type="submit" className="bg-coral hover:bg-coral-hover text-white h-8">Save</Button>
           <Button type="button" variant="outline" onClick={() => setAdding(false)} className="h-8">Cancel</Button>
         </form>
       )}
 
       <div className="grid grid-cols-2 gap-4">
         {methods.map(pm => (
-          <div key={pm.id} className="bg-white border rounded-lg p-4">
+          <div key={pm.id} className="bg-card border border-border rounded-lg p-4">
             <div className="flex items-start justify-between">
               <div>
                 <div className="flex items-center gap-2 mb-1">
                   <span className="w-2 h-2 rounded-full bg-green-400" />
-                  <p className="font-medium text-gray-900">{pm.name}</p>
-                  {pm.isDefault && <Badge className="text-xs bg-[#00a8c8] text-white border-0">Standard</Badge>}
+                  <p className="font-medium text-navy">{pm.name}</p>
+                  {pm.isDefault && <Badge className="text-xs bg-cyan text-white border-0">Standard</Badge>}
                   {pm.type === 'REIMBURSABLE' && <Badge className="text-xs bg-orange-100 text-orange-700 border-0">Refundable</Badge>}
                 </div>
                 {pm.financeAccount && (
-                  <p className="text-xs text-gray-400">Finance account: {pm.financeAccount}</p>
+                  <p className="text-xs text-light-grey">Finance account: {pm.financeAccount}</p>
                 )}
               </div>
             </div>

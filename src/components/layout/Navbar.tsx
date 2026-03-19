@@ -38,21 +38,26 @@ export default function Navbar({ user }: NavbarProps) {
   const isActive = (href: string) => pathname.startsWith(href)
 
   return (
-    <nav className="bg-[#1a3a4a] text-white shadow-md">
+    <nav className="bg-navy text-white shadow-lg">
       <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-14">
         {/* Left: Logo + nav links */}
-        <div className="flex items-center gap-6">
-          <span className="font-bold text-lg tracking-tight whitespace-nowrap">
-            Receipt App
-          </span>
+        <div className="flex items-center gap-8">
+          <Link href="/dashboard" className="flex items-center gap-2">
+            <span className="font-bold text-lg tracking-tight whitespace-nowrap">
+              FLOWTALE
+            </span>
+            <span className="text-[11px] font-mono uppercase tracking-[2px] text-cyan opacity-80">
+              Expenses
+            </span>
+          </Link>
           <div className="flex items-center gap-0.5">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`px-3 py-1.5 rounded text-sm transition-colors whitespace-nowrap ${
+                className={`px-3 py-1.5 rounded-full text-sm transition-colors whitespace-nowrap ${
                   isActive(link.href)
-                    ? 'bg-white/20 text-white font-medium'
+                    ? 'bg-coral text-white font-medium'
                     : 'text-white/70 hover:text-white hover:bg-white/10'
                 }`}
               >
@@ -62,9 +67,9 @@ export default function Navbar({ user }: NavbarProps) {
             {user.role === 'OWNER' && (
               <Link
                 href="/settings/users"
-                className={`flex items-center gap-1 px-3 py-1.5 rounded text-sm transition-colors ${
+                className={`flex items-center gap-1 px-3 py-1.5 rounded-full text-sm transition-colors ${
                   isActive('/settings')
-                    ? 'bg-white/20 text-white font-medium'
+                    ? 'bg-coral text-white font-medium'
                     : 'text-white/70 hover:text-white hover:bg-white/10'
                 }`}
               >
@@ -78,13 +83,13 @@ export default function Navbar({ user }: NavbarProps) {
         {/* Right: language switcher, bell, avatar */}
         <div className="flex items-center gap-3">
           <LanguageSwitcher />
-          <button className="text-white/70 hover:text-white p-1">
+          <button className="text-white/70 hover:text-white p-1 transition-colors">
             <Bell size={18} />
           </button>
           <DropdownMenu>
             <DropdownMenuTrigger className="outline-none">
                 <Avatar className="w-8 h-8 cursor-pointer">
-                  <AvatarFallback className="bg-[#00a8c8] text-white text-xs font-medium">
+                  <AvatarFallback className="bg-coral text-white text-xs font-bold">
                     {user.name
                       .split(' ')
                       .map((w) => w[0])
@@ -97,7 +102,7 @@ export default function Navbar({ user }: NavbarProps) {
             <DropdownMenuContent align="end" className="w-48">
               <div className="px-3 py-2">
                 <p className="text-sm font-medium">{user.name}</p>
-                <p className="text-xs text-gray-500 truncate">{user.email}</p>
+                <p className="text-xs text-muted-foreground truncate">{user.email}</p>
               </div>
               <DropdownMenuSeparator />
               <DropdownMenuItem

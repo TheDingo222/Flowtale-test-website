@@ -64,11 +64,11 @@ export default function ProfilePage() {
 
   return (
     <div className="max-w-2xl space-y-6">
-      <h1 className="text-2xl font-semibold text-gray-900">My Profile</h1>
+      <h1 className="text-2xl font-semibold text-navy">My Profile</h1>
 
       {/* Personal info */}
-      <div className="bg-white rounded-lg border p-6">
-        <h2 className="font-semibold text-gray-800 mb-4">Personal Information</h2>
+      <div className="bg-card rounded-lg border border-border p-6">
+        <h2 className="font-semibold text-navy mb-4">Personal Information</h2>
         <form onSubmit={saveProfile} className="space-y-4">
           <div className="grid grid-cols-2 gap-4">
             <div>
@@ -99,15 +99,15 @@ export default function ProfilePage() {
             </div>
           </div>
           <div className="flex items-center gap-3">
-            <Button type="submit" className="bg-[#00a8c8] hover:bg-[#0090aa] text-white">Save Changes</Button>
+            <Button type="submit" className="bg-coral hover:bg-coral-hover text-white">Save Changes</Button>
             {saved && <span className="text-green-600 text-sm">Saved!</span>}
           </div>
         </form>
       </div>
 
       {/* Change password */}
-      <div className="bg-white rounded-lg border p-6">
-        <h2 className="font-semibold text-gray-800 mb-4">Change Password</h2>
+      <div className="bg-card rounded-lg border border-border p-6">
+        <h2 className="font-semibold text-navy mb-4">Change Password</h2>
         <form onSubmit={savePassword} className="space-y-4">
           <div>
             <Label>New Password</Label>

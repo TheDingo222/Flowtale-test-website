@@ -39,12 +39,12 @@ export default function UsersPage() {
     setUsers((prev) => prev.map((u) => u.id === user.id ? { ...u, status: newStatus } : u))
   }
 
-  if (loading) return <div className="text-gray-400 text-sm p-8 text-center">Loading...</div>
+  if (loading) return <div className="text-light-grey text-sm p-8 text-center">Loading...</div>
 
   return (
     <div>
       <div className="flex items-center justify-between mb-6">
-        <h1 className="text-2xl font-semibold text-gray-900">Users</h1>
+        <h1 className="text-2xl font-semibold text-navy">Users</h1>
         <AddUserModal onUserAdded={handleUserAdded} />
       </div>
 
@@ -54,19 +54,19 @@ export default function UsersPage() {
       ].map(({ label, items }) =>
         items.length > 0 ? (
           <div key={label} className="mb-6">
-            <h2 className="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-2">
+            <h2 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground mb-2">
               {label}
             </h2>
-            <div className="bg-white rounded-lg border divide-y">
+            <div className="bg-card rounded-lg border border-border divide-y">
               {items.map((u) => (
                 <div key={u.id} className="flex items-center justify-between px-4 py-3">
                   <div className="flex items-center gap-3">
-                    <span className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-[#00a8c8] text-white text-xs font-semibold">
+                    <span className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-coral text-white text-xs font-semibold">
                       {u.initials || u.name.slice(0, 2).toUpperCase()}
                     </span>
                     <div>
-                      <p className="font-medium text-sm text-gray-900">{u.name}</p>
-                      <p className="text-xs text-gray-400">{u.email}</p>
+                      <p className="font-medium text-sm text-navy">{u.name}</p>
+                      <p className="text-xs text-light-grey">{u.email}</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-2">

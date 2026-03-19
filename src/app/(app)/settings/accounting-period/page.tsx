@@ -30,19 +30,19 @@ export default function AccountingPeriodPage() {
 
   return (
     <div>
-      <h1 className="text-2xl font-semibold text-gray-900 mb-2">Accounting Period Limit</h1>
-      <p className="text-sm text-gray-500 mb-6">
+      <h1 className="text-2xl font-semibold text-navy mb-2">Accounting Period Limit</h1>
+      <p className="text-sm text-muted-foreground mb-6">
         Set a date before which no expenses can be added, edited, or approved.
         Leave empty to allow all dates.
       </p>
 
-      <div className="bg-white rounded-lg border p-6 max-w-md">
+      <div className="bg-card rounded-lg border border-border p-6 max-w-md">
         <form onSubmit={save} className="space-y-4">
           <div>
-            <label className="text-sm font-medium text-gray-700 block mb-1">
+            <label className="text-sm font-medium text-dark-slate block mb-1">
               Lock expenses before this date
             </label>
-            <p className="text-xs text-gray-400 mb-2">
+            <p className="text-xs text-light-grey mb-2">
               You will not be able to add, edit, or approve expenses dated before the selected date.
             </p>
             <Input
@@ -52,7 +52,7 @@ export default function AccountingPeriodPage() {
             />
           </div>
           <div className="flex items-center gap-3">
-            <Button type="submit" className="bg-[#00a8c8] hover:bg-[#0090aa] text-white">
+            <Button type="submit" className="bg-coral hover:bg-coral-hover text-white">
               Save Changes
             </Button>
             {saved && <span className="text-green-600 text-sm">Saved!</span>}

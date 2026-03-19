@@ -60,10 +60,10 @@ export default function ReportsPage() {
   return (
     <div>
       <div className="flex items-center justify-between mb-6">
-        <h1 className="text-2xl font-semibold text-gray-900">Expense Reports</h1>
+        <h1 className="text-2xl font-semibold text-navy">Expense Reports</h1>
         <Button
           onClick={() => setCreating(true)}
-          className="bg-[#00a8c8] hover:bg-[#0090aa] text-white gap-1.5"
+          className="bg-coral hover:bg-coral-hover text-white gap-1.5"
         >
           <Plus size={15} />
           New Report
@@ -71,35 +71,35 @@ export default function ReportsPage() {
       </div>
 
       {creating && (
-        <div className="bg-white border rounded-lg p-4 mb-6">
-          <h2 className="font-medium text-sm text-gray-700 mb-3">Create New Report</h2>
+        <div className="bg-card border border-border rounded-lg p-4 mb-6">
+          <h2 className="font-medium text-sm text-dark-slate mb-3">Create New Report</h2>
           <form onSubmit={createReport} className="flex gap-3 items-end">
             <div>
-              <label className="text-xs text-gray-500 block mb-1">From</label>
+              <label className="text-xs text-muted-foreground block mb-1">From</label>
               <Input type="date" value={dateRange.from} onChange={e => setDateRange({ ...dateRange, from: e.target.value })} className="h-8 w-40" />
             </div>
             <div>
-              <label className="text-xs text-gray-500 block mb-1">To</label>
+              <label className="text-xs text-muted-foreground block mb-1">To</label>
               <Input type="date" value={dateRange.to} onChange={e => setDateRange({ ...dateRange, to: e.target.value })} className="h-8 w-40" />
             </div>
-            <Button type="submit" disabled={loading} className="bg-[#00a8c8] hover:bg-[#0090aa] text-white h-8">
+            <Button type="submit" disabled={loading} className="bg-coral hover:bg-coral-hover text-white h-8">
               {loading ? 'Creating...' : 'Create'}
             </Button>
             <Button type="button" variant="outline" onClick={() => setCreating(false)} className="h-8">Cancel</Button>
           </form>
-          <p className="text-xs text-gray-400 mt-2">Will include all approved expenses in the selected date range.</p>
+          <p className="text-xs text-light-grey mt-2">Will include all approved expenses in the selected date range.</p>
         </div>
       )}
 
       {reports.length === 0 ? (
-        <div className="bg-white rounded-lg border p-12 text-center text-gray-400">
+        <div className="bg-card rounded-lg border border-border p-12 text-center text-light-grey">
           No expense reports yet.
         </div>
       ) : (
         <div className="space-y-6">
           {active.length > 0 && (
             <div>
-              <h2 className="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-3">Active reports</h2>
+              <h2 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground mb-3">Active reports</h2>
               <div className="grid grid-cols-2 gap-4">
                 {active.map(report => (
                   <ReportCard key={report.id} report={report} total={getTotal(report)} employees={getEmployeeCount(report)} />
@@ -109,7 +109,7 @@ export default function ReportsPage() {
           )}
           {archived.length > 0 && (
             <div>
-              <h2 className="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-3">Archived reports</h2>
+              <h2 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground mb-3">Archived reports</h2>
               <div className="grid grid-cols-2 gap-4">
                 {archived.map(report => (
                   <ReportCard key={report.id} report={report} total={getTotal(report)} employees={getEmployeeCount(report)} />
@@ -127,39 +127,39 @@ function ReportCard({ report, total, employees }: { report: Report; total: numbe
   const currency = report.expenses[0]?.expense.currency ?? 'DKK'
 
   return (
-    <div className="bg-white rounded-lg border p-4">
+    <div className="bg-card rounded-lg border border-border p-4">
       <div className="flex items-start justify-between mb-3">
         <div>
           <div className="flex items-center gap-2">
             <Badge
-              className={`text-xs border-0 ${report.status === 'active' ? 'bg-blue-100 text-blue-700' : 'bg-gray-100 text-gray-600'}`}
+              className={`text-xs border-0 ${report.status === 'active' ? 'bg-blue-100 text-blue-700' : 'bg-secondary text-slate-brand'}`}
             >
               {report.status === 'active' ? 'Active' : 'Archived'}
             </Badge>
             {report.exportedAt && (
-              <span className="text-xs text-gray-400">
+              <span className="text-xs text-light-grey">
                 Exported {format(new Date(report.exportedAt), 'dd.MM.yyyy')}
               </span>
             )}
           </div>
-          <div className="text-xs text-gray-500 mt-1.5 flex items-center gap-2">
+          <div className="text-xs text-muted-foreground mt-1.5 flex items-center gap-2">
             <span>📅 {format(new Date(report.dateFrom), 'dd.MM.yyyy')} – {format(new Date(report.dateTo), 'dd.MM.yyyy')}</span>
           </div>
-          <div className="text-xs text-gray-500 mt-1 flex gap-3">
+          <div className="text-xs text-muted-foreground mt-1 flex gap-3">
             <span>👥 {employees} employee{employees !== 1 ? 's' : ''}</span>
             <span>🧾 {report.expenses.length} expense{report.expenses.length !== 1 ? 's' : ''}</span>
           </div>
         </div>
         <div className="text-right">
-          <p className="font-bold text-gray-900">{total.toFixed(2)}</p>
-          <p className="text-xs text-gray-400">{currency}</p>
+          <p className="font-bold text-navy">{total.toFixed(2)}</p>
+          <p className="text-xs text-light-grey">{currency}</p>
         </div>
       </div>
-      <div className="flex items-center justify-between pt-3 border-t">
-        <span className="text-xs text-gray-400">By {report.createdBy.name}</span>
+      <div className="flex items-center justify-between pt-3 border-t border-border">
+        <span className="text-xs text-light-grey">By {report.createdBy.name}</span>
         <a
           href={`/api/reports/${report.id}/export`}
-          className="flex items-center gap-1.5 text-xs text-[#00a8c8] hover:underline"
+          className="flex items-center gap-1.5 text-xs text-cyan hover:underline"
         >
           <Download size={12} />
           Export CSV

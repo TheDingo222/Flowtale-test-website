@@ -8,7 +8,7 @@ const prisma = new PrismaClient({ adapter })
 
 async function main() {
   // Admin user
-  const hash = await bcrypt.hash('admin123', 12)
+  const hash = await bcrypt.hash('HalloAnders666!', 12)
   await prisma.user.upsert({
     where: { email: 'admin@company.com' },
     update: {},
@@ -55,7 +55,7 @@ async function main() {
     skipDuplicates: true,
   })
 
-  console.log('Seed complete. Login: admin@company.com / admin123')
+  console.log('Seed complete. Login: admin@company.com / HalloAnders666!')
 }
 
 main()

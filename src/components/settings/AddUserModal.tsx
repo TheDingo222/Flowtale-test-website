@@ -43,7 +43,7 @@ export default function AddUserModal({ onUserAdded }: Props) {
 
   return (
     <>
-      <Button onClick={() => setOpen(true)} className="bg-[#00a8c8] hover:bg-[#0090aa] text-white">
+      <Button onClick={() => setOpen(true)} className="bg-coral hover:bg-coral-hover text-white">
         Add User
       </Button>
       <Dialog open={open} onOpenChange={setOpen}>
@@ -77,7 +77,7 @@ export default function AddUserModal({ onUserAdded }: Props) {
             {error && <p className="text-red-500 text-sm">{error}</p>}
             <div className="flex gap-2 justify-end pt-2">
               <Button type="button" variant="outline" onClick={() => setOpen(false)}>Cancel</Button>
-              <Button type="submit" className="bg-[#00a8c8] hover:bg-[#0090aa] text-white" disabled={loading}>
+              <Button type="submit" className="bg-coral hover:bg-coral-hover text-white" disabled={loading}>
                 {loading ? 'Adding...' : 'Add User'}
               </Button>
             </div>

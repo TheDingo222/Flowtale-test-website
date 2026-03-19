@@ -45,14 +45,14 @@ export default function TagsPage() {
   return (
     <div>
       <div className="flex items-center justify-between mb-6">
-        <h1 className="text-2xl font-semibold text-gray-900">Tags</h1>
-        <Button onClick={() => setAdding(true)} className="bg-[#00a8c8] hover:bg-[#0090aa] text-white">
+        <h1 className="text-2xl font-semibold text-navy">Tags</h1>
+        <Button onClick={() => setAdding(true)} className="bg-coral hover:bg-coral-hover text-white">
           Add Tag
         </Button>
       </div>
 
       {adding && (
-        <form onSubmit={addTag} className="bg-white border rounded-lg p-4 mb-4 flex gap-3 items-end">
+        <form onSubmit={addTag} className="bg-card border border-border rounded-lg p-4 mb-4 flex gap-3 items-end">
           <div>
             <Label className="text-xs">Tag Name *</Label>
             <Input required value={form.name} onChange={e => setForm({ ...form, name: e.target.value })} className="mt-1 h-8 w-48" />
@@ -61,24 +61,24 @@ export default function TagsPage() {
             <Label className="text-xs">Period (optional)</Label>
             <Input value={form.period} onChange={e => setForm({ ...form, period: e.target.value })} className="mt-1 h-8 w-32" placeholder="e.g. 202501" />
           </div>
-          <Button type="submit" className="bg-[#00a8c8] hover:bg-[#0090aa] text-white h-8">Save</Button>
+          <Button type="submit" className="bg-coral hover:bg-coral-hover text-white h-8">Save</Button>
           <Button type="button" variant="outline" onClick={() => setAdding(false)} className="h-8">Cancel</Button>
         </form>
       )}
 
       <div className="grid grid-cols-2 gap-4">
         {Object.entries(grouped).map(([period, periodTags]) => (
-          <div key={period} className="bg-white border rounded-lg p-4">
+          <div key={period} className="bg-card border border-border rounded-lg p-4">
             <div className="flex items-center gap-2 mb-3">
-              <span className="text-xs font-semibold text-[#00a8c8]">+</span>
-              <h3 className="font-medium text-sm text-gray-900">{period}</h3>
+              <span className="text-xs font-semibold text-cyan">+</span>
+              <h3 className="font-medium text-sm text-navy">{period}</h3>
             </div>
             <div className="space-y-1.5">
               {periodTags.map(tag => (
                 <div key={tag.id} className="flex items-center justify-between text-sm">
-                  <span className="text-gray-700">{tag.name}</span>
+                  <span className="text-dark-slate">{tag.name}</span>
                   <div className="flex items-center gap-2">
-                    <span className="text-xs text-gray-400">{tag._count.expenses} expenses</span>
+                    <span className="text-xs text-light-grey">{tag._count.expenses} expenses</span>
                     {tag._count.expenses === 0 && (
                       <button
                         onClick={() => deleteTag(tag.id)}
